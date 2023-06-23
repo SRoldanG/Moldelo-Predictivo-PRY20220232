@@ -1,0 +1,9 @@
+{
+	"name": "modeloPredictivoPRY20220232",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "edf217ee-81b1-4f22-bb0e-f8adbca8a8d0",
+		"tenantId": "0e0cb060-09ad-49f5-a005-68b9b49aa1f6"
+	}
+}
