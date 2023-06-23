@@ -7,11 +7,13 @@ from sklearn.metrics import accuracy_score, recall_score, f1_score, confusion_ma
 import seaborn as sns
 import matplotlib.pyplot as plt
 from scipy import stats
+from azure.storage.blob import BlobServiceClient
+import io
 from sklearn.decomposition import PCA
 
 
-archivo_csv = "C:/Users/alexa/PycharmProjects/pythonProject/Borrador/DatasetdePrueba4.csv"
-data = pd.read_csv(archivo_csv, delimiter=";")
+url = "https://almacenamiento20220232.blob.core.windows.net/datasetmodelopredictivo20220232/DatasetdePrueba4.csv?sp=r&st=2023-06-23T23:24:26Z&se=2023-07-22T07:24:26Z&spr=https&sv=2022-11-02&sr=b&sig=xstK6G7%2FCKcDny0YkDPu7Myt5TCGPwFih6KHBYgBrco%3D"
+data = pd.read_csv(url, delimiter=";")
 
 le = LabelEncoder()
 data['Género'] = le.fit_transform(data['Género'])
@@ -95,33 +97,9 @@ f1 = f1_score(y_test, y_pred)
 f1 = f1 * 100
 confusion = confusion_matrix(y_test, y_pred)
 
-print("\n")
-print(f"Accuracy: {accuracy:.2f} %")
-print(f"Recall: {recall:.2f} %")
-print(f"F1 score: {f1:.2f} %")
+#print("\n")
+#print(f"Accuracy: {accuracy:.2f} %")
+#print(f"Recall: {recall:.2f} %")
+#print(f"F1 score: {f1:.2f} %")
 
-
-
-
-
-# Calcular la matriz de correlación
-correlation_matrix = X.corr()
-
-# Imprimir la matriz de correlación
-print(correlation_matrix)
-
-plt.figure(figsize=(12, 10))
-sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm")
-plt.show()
-
-
-# Calcula la correlación y el p-valor entre 'Edad' y 'Tiene Trabajo'
-correlation, p_value = stats.pearsonr(data['Edad'], data['Tiene Trabajo'])
-
-print(f'Correlation: {correlation}')
-print(f'p-value: {p_value}')
-
-#print("Confusion Matrix:")
-#print(confusion)
-#data.to_csv("C:/Users/alexa/PycharmProjects/pythonProject/Borrador/DatasetdePrueba9.csv", index=False, sep=";")
 
