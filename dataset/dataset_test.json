@@ -1,0 +1,28 @@
+{
+	"name": "dataset_test",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "DatasetdePrueba4.csv",
+				"container": "datasetmodelopredictivo20220232"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Nombre;Edad;Género;Discapacidad;Carga Familiar;Padre con Estudios;Madre con Estudios;Hermanos;Ciclo;Cursos Matriculados;Cursos Aprobados;Indicador de desempeño;Desempeño;Carrera Elegida;Modalidad de Clases;Tiene Trabajo;Desertará",
+				"type": "String"
+			}
+		]
+	}
+}
